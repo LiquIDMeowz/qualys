@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     sh "cd /home/jenkins"
-                    sh "podman build -t testingstuff ."
+                    sh "/usr/bin/podman build -t testingstuff ."
                 }
             }
         }
