@@ -7,7 +7,8 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "sleep 9999"
+                    sh "cd /home/jenkins"
+                    sh "podman build -t testingstuff ."
                 }
             }
         }
