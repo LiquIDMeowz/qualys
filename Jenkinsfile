@@ -7,7 +7,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "cd /home/jenkins"
+                    sh "cp /home/jenkins/Dockerfile /tmp/workspace/qualys-test/Dockerfile"
                     sh "/usr/bin/podman build -t testingstuff ."
                 }
             }
