@@ -7,7 +7,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "podman build https://github.com/LiquIDMeowz/image"
+                    sh "podman build -t agent-test ."
                 }
             }
         }
