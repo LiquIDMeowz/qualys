@@ -7,7 +7,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "podman build -t agent-test ."
+                    sh "sleep 9999"
                 }
             }
         }
