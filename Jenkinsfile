@@ -2,3 +2,4 @@ pipeline {
     agent  {
         label 'podman'
     }
+}
