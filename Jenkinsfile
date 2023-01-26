@@ -7,7 +7,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "ls -alh"
+                    sh "podman build https://github.com/LiquIDMeowz/image"
                 }
             }
         }
