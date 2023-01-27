@@ -11,7 +11,7 @@ pipeline {
                         sh "cp /home/jenkins/Dockerfile /tmp/workspace/qualys-test/Dockerfile"
                         sh "cd /tmp/workspace/qualys-test/"
                         sh "podman login -u $USERNAME -p $PASSWORD default-route-openshift-image-registry.apps.sbx.advantagedp.org"
-                        sh "/usr/bin/podman build -t --device /dev/fuse testingstuff . "
+                        sh "/usr/bin/podman build -t testingstuff --device /dev/fuse ."
                     }
                 }
             }
