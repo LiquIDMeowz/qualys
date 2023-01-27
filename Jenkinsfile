@@ -10,8 +10,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'd4025996-d470-4a8a-b21e-5550da91c5fe', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh "cp /home/jenkins/Dockerfile /tmp/workspace/qualys-test/Dockerfile"
                         sh "cd /tmp/workspace/qualys-test/"
-                        sh "sleep 9999"
-                        sh "modprobe fuse"
+                        sh "echo "proxy=http://138.35.24.153:8088" >> /etc/dnf/dnf.conf"
+                        sh "dnf install fuse -y"
                         sh "podman login -u $USERNAME -p $PASSWORD default-route-openshift-image-registry.apps.sbx.advantagedp.org"
                         sh "/usr/bin/podman build -t testingstuff --device /dev/fuse -v /var/lib/containers:/var/lib/containers:Z ."
                     }
