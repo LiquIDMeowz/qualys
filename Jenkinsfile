@@ -12,9 +12,7 @@ pipeline {
                         sh "cd /tmp/workspace/qualys-test/"
                         sh "cat /etc/os-release"
                         sh 'echo "proxy=http://138.35.24.153:8088" >> /etc/dnf/dnf.conf'
-                        sh "dnf update -y"
                         sh "dnf install fuse -y"
-                        sh "dnf install podman -y"
                         sh "podman login -u $USERNAME -p $PASSWORD default-route-openshift-image-registry.apps.sbx.advantagedp.org"
                         sh "/usr/bin/podman build -t testingstuff --device /dev/fuse -v /var/lib/containers:/var/lib/containers:Z ."
                     }
