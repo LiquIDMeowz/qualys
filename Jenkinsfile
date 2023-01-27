@@ -11,6 +11,7 @@ pipeline {
                         sh "cp /home/jenkins/Dockerfile /tmp/workspace/qualys-test/Dockerfile"
                         sh "cd /tmp/workspace/qualys-test/"
                         sh "find /lib/modules/ -name fuse.ko.xz"
+                        sh "dnf install --reinstall linux-odroid-n2 -y"
                         sh "ls -alh /dev/fuse"
                         sh "lsmod | grep fuse | wc -l"
                         sh "modprobe fuse"
